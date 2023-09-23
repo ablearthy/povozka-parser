@@ -44,8 +44,6 @@ import qualified Povozka.AST as A
     func_header     { L.RangedToken L.FuncHeader _ }
     types_header    { L.RangedToken L.TypesHeader _ }
 
-%right identifier
-
 %%
 
 many_rev(p)
@@ -141,6 +139,7 @@ args :: { [A.Arg L.Range] }
   | var_ident_opt ':' var_ident angle_bracket_expr { [A.SimpleArg $1 Nothing Nothing (A.TExpr $ A.Expr ((A.TVar $3):$4))]}
   | optional(ignore2(var_ident_opt, ':')) optional(ignore2(number, '*')) '[' some(args) ']' { [A.ArrayArg (join $1) (fmap (flip unTok (\_ (L.Number n) -> fromIntegral n)) $2) (join $4) ]}
   | '(' some(type_ident_opt) ':' optional('!') term ')' { map (\i -> A.SimpleArg i Nothing (exclMarkToAST $4) $5) $2 }
+  {- тоже вводит S/R конфликт -}
   -- | optional('!') term1 { [A.SimpleArg Nothing Nothing (exclMarkToAST $1) $2] } 
 
 result_type :: { A.ResultType L.Range }
