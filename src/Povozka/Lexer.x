@@ -24,7 +24,7 @@ $identChar = [a-zA-Z0-9_]
 
 
 @id_ = [a-zA-Z] $identChar*
-@id = (@id_ \.)? @id_ ("#" [0-9a-fA-F]{8})?
+@id = (@id_ \.)? @id_ ("#" [0-9a-fA-F]{1,8})?
 
 @number = [0-9]+
 
