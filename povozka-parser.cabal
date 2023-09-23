@@ -21,7 +21,10 @@ common warnings
 library
   import:             warnings
   exposed-modules:    MyLib
-  other-modules:      Povozka.Lexer
+  other-modules:
+    Povozka.AST
+    Povozka.Lexer
+    Povozka.Parser
 
   -- other-extensions:
   build-tool-depends:
