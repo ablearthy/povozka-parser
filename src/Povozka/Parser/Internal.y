@@ -1,6 +1,6 @@
 {
 {-# LANGUAGE DeriveFoldable, OverloadedStrings #-}
-module Povozka.Parser (parseTL) where
+module Povozka.Parser.Internal (parseTL) where
 
 import Data.ByteString.Lazy.Char8 (ByteString)
 import Data.Maybe (fromJust)
@@ -8,7 +8,7 @@ import Data.Monoid (First (..))
 import Control.Monad (join)
 
 import qualified Povozka.Lexer as L
-import qualified Povozka.AST as A
+import qualified Povozka.AST.Internal as A
 }
 
 %name parseTL schema

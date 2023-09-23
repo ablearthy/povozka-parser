@@ -1,6 +1,6 @@
 {-# LANGUAGE DeriveFoldable #-}
 
-module Povozka.AST where
+module Povozka.AST.Internal where
 
 import Data.ByteString.Lazy.Char8 (ByteString)
 import Data.Word (Word32)

@@ -20,11 +20,11 @@ common warnings
 
 library
   import:             warnings
-  exposed-modules:    MyLib
+  exposed-modules:    Povozka.Parser
   other-modules:
-    Povozka.AST
+    Povozka.AST.Internal
     Povozka.Lexer
-    Povozka.Parser
+    Povozka.Parser.Internal
 
   -- other-extensions:
   build-tool-depends:
@@ -47,6 +47,7 @@ executable povozka-parser
   -- other-extensions:
   build-depends:
     , base            ^>=4.17.1.0
+    , bytestring
     , povozka-parser
 
   hs-source-dirs:   app
