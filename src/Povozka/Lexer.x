@@ -40,6 +40,7 @@ tokens :-
 <0> "---" $white* "functions" $white* "---" { tok FuncHeader }
 <0> "---" $white* "types" $white* "---" { tok TypesHeader }
 
+<0> "*" { tok Asterisk }
 <0> ":" { tok Colon }
 <0> ";" { tok Semicolon }
 <0> "(" { tok LPar }
@@ -54,6 +55,7 @@ tokens :-
 <0> "+" { tok Plus }
 <0> "=" { tok Equals }
 <0> "?" { tok QuestionMark }
+<0> "," { tok Comma }
 <0> "." { tok Dot }
 <0> "#" { tok Hash }
 <0> "!" { tok ExclMark }
@@ -101,10 +103,12 @@ data Token
   | Plus
   | Equals
   | QuestionMark
+  | Comma
   | Dot
   | Hash
   | ExclMark
   | Underscore
+  | Asterisk
   | FuncHeader
   | TypesHeader
   | EOF
